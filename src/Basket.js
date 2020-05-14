@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react'
 
-const Basket = ({  name, price, items }) => {
+const Basket = ({ name, price, items, removeBasket, increasePrice }) => {
   return (
     <Fragment>
       <h4>{ name }</h4>
       <ul>
         {
-          items.map(item => <li>{ item.name }</li>)
+          items.map((item, index) => <li key={index}>{ item.name }</li>)
         }
       </ul>
-      <span>{ price }</span>
+      <p>{ price }</p>
+      <button onClick={() => removeBasket(name)}>remove basket from CSA</button>
+      <button onClick={() => increasePrice(name)}>increase price</button>
     </Fragment>
   )
 }
